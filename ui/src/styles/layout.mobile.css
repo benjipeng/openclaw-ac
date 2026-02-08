@@ -2,15 +2,13 @@
    Mobile Layout
    =========================================== */
 
-/* Tablet: Horizontal nav */
+/* Tablet */
 @media (max-width: 1100px) {
   .nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 4px;
-    padding: 10px 14px;
-    overflow-x: auto;
+    display: block;
+    padding: 12px 10px 18px;
+    overflow-x: hidden;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
@@ -20,27 +18,27 @@
   }
 
   .nav-group {
-    display: contents;
+    display: grid;
   }
 
   .nav-group__items {
-    display: contents;
+    display: grid;
   }
 
   .nav-label {
-    display: none;
+    display: flex;
   }
 
   .nav-group--collapsed .nav-group__items {
-    display: contents;
+    display: none;
   }
 
   .nav-item {
-    padding: 8px 14px;
+    padding: 8px 10px;
     font-size: 13px;
     border-radius: var(--radius-md);
-    white-space: nowrap;
-    flex-shrink: 0;
+    white-space: normal;
+    flex-shrink: 1;
   }
 }
 
@@ -96,8 +94,10 @@
 
   /* Nav */
   .nav {
-    padding: 8px 10px;
-    gap: 4px;
+    padding: 10px 8px 16px;
+    gap: 2px;
+    overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
@@ -107,19 +107,23 @@
   }
 
   .nav-group {
-    display: contents;
+    display: grid;
   }
 
   .nav-label {
-    display: none;
+    display: flex;
+  }
+
+  .nav-group__items {
+    display: grid;
   }
 
   .nav-item {
-    padding: 6px 10px;
+    padding: 7px 10px;
     font-size: 12px;
     border-radius: var(--radius-md);
-    white-space: nowrap;
-    flex-shrink: 0;
+    white-space: normal;
+    flex-shrink: 1;
   }
 
   /* Content */
@@ -127,9 +131,53 @@
     display: none;
   }
 
+  /* Keep chat controls visible on mobile (session picker lives here). */
+  .content--chat .content-header {
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .content--chat .content-header > div:first-child {
+    display: none;
+  }
+
+  .content--chat .page-meta {
+    width: fit-content;
+    margin-left: auto;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+
+  .content--chat .chat-controls {
+    width: fit-content;
+    max-width: calc(100% - 4px);
+    margin-left: auto;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 4px;
+    pointer-events: auto;
+  }
+
+  .content--chat .chat-controls__session {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 58vw;
+  }
+
+  .content--chat .chat-controls__session select {
+    width: clamp(132px, 48vw, 220px);
+    max-width: 100%;
+  }
+
   .content {
     padding: 4px 4px 16px;
     gap: 12px;
+  }
+
+  .content--chat {
+    padding: 0;
   }
 
   /* Cards */

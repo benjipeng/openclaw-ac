@@ -39,6 +39,8 @@ import { startThemeTransition, type ThemeTransitionContext } from "./theme-trans
 import { resolveTheme, type ResolvedTheme, type ThemeMode } from "./theme.ts";
 import type { AgentsListResult } from "./types.ts";
 
+export const NAV_COLLAPSE_BREAKPOINT_PX = 1100;
+
 type SettingsHost = {
   settings: UiSettings;
   password?: string;
@@ -58,8 +60,17 @@ type SettingsHost = {
   agentsPanel?: "overview" | "files" | "tools" | "skills" | "channels" | "cron";
   themeMedia: MediaQueryList | null;
   themeMediaHandler: ((event: MediaQueryListEvent) => void) | null;
+  navViewportMedia: MediaQueryList | null;
+  navViewportHandler: ((event: MediaQueryListEvent) => void) | null;
   pendingGatewayUrl?: string | null;
 };
+
+function isNarrowViewport() {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return false;
+  }
+  return window.matchMedia(`(max-width: ${NAV_COLLAPSE_BREAKPOINT_PX}px)`).matches;
+}
 
 export function applySettings(host: SettingsHost, next: UiSettings) {
   const normalized = {
@@ -260,6 +271,60 @@ export function applyResolvedTheme(host: SettingsHost, resolved: ResolvedTheme) 
   const root = document.documentElement;
   root.dataset.theme = resolved;
   root.style.colorScheme = resolved;
+}
+
+export function collapseNavForNarrowViewport(host: SettingsHost) {
+  if (!isNarrowViewport() || host.settings.navCollapsed) {
+    return;
+  }
+  applySettings(host, {
+    ...host.settings,
+    navCollapsed: true,
+  });
+}
+
+export function attachNavViewportListener(host: SettingsHost) {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return;
+  }
+  detachNavViewportListener(host);
+  host.navViewportMedia = window.matchMedia(`(max-width: ${NAV_COLLAPSE_BREAKPOINT_PX}px)`);
+  host.navViewportHandler = (event) => {
+    if (!event.matches || host.settings.navCollapsed) {
+      return;
+    }
+    applySettings(host, {
+      ...host.settings,
+      navCollapsed: true,
+    });
+  };
+  collapseNavForNarrowViewport(host);
+  if (typeof host.navViewportMedia.addEventListener === "function") {
+    host.navViewportMedia.addEventListener("change", host.navViewportHandler);
+    return;
+  }
+  const legacy = host.navViewportMedia as MediaQueryList & {
+    addListener: (cb: (event: MediaQueryListEvent) => void) => void;
+  };
+  legacy.addListener(host.navViewportHandler);
+}
+
+export function detachNavViewportListener(host: SettingsHost) {
+  if (!host.navViewportMedia || !host.navViewportHandler) {
+    host.navViewportMedia = null;
+    host.navViewportHandler = null;
+    return;
+  }
+  if (typeof host.navViewportMedia.removeEventListener === "function") {
+    host.navViewportMedia.removeEventListener("change", host.navViewportHandler);
+  } else {
+    const legacy = host.navViewportMedia as MediaQueryList & {
+      removeListener: (cb: (event: MediaQueryListEvent) => void) => void;
+    };
+    legacy.removeListener(host.navViewportHandler);
+  }
+  host.navViewportMedia = null;
+  host.navViewportHandler = null;
 }
 
 export function attachThemeListener(host: SettingsHost) {

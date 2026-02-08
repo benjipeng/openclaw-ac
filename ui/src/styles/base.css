@@ -1,6 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-Thin-Trial-BF63f6cc84a4246.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-ThinItalic-Trial-BF63f6cbe8d3333.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-Light-Trial-BF63f6cbe64b47b.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-LightItalic-Trial-BF63f6cbe9d67d1.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-Regular-Trial-BF63f6cbe9db1d5.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-RegularItalic-Trial-BF63f6cbe5c1942.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-Medium-Trial-BF63f6cc85760c2.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-MediumItalic-Trial-BF63f6cc84a421a.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-Bold-Trial-BF63f6cbe9f13bb.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-BoldItalic-Trial-BF63f6cbe6863e6.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-Black-Trial-BF63f6cbe3dc69b.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene B";
+  src: url("/fonts/styrene/StyreneB-BlackItalic-Trial-BF63f6cbe2d985b.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-Light-BF66457a50df5a0.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-LightItalic-BF66457a5088153.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-Regular-BF66457a508e31a.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-RegularItalic-BF66457a5091d70.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-Medium-BF66457a509b4ec.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-MediumItalic-BF66457a50b4260.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-Semibold-BF66457a509040b.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-SemiboldItalic-BF66457a510c462.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-Bold-BF66457a5113d17.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-BoldItalic-BF66457a5072af7.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-Black-BF66457a50e385b.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos/TestTiemposHeadline-BlackItalic-BF66457a505495d.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
 :root {
   /* Background - Warmer dark with depth */
-  --bg: #12141a;
+  --bg: #000000;
   --bg-accent: #14161d;
   --bg-elevated: #1a1d25;
   --bg-hover: #262a35;
@@ -33,16 +228,17 @@
   --border-strong: #3f3f46;
   --border-hover: #52525b;
   --input: #27272a;
-  --ring: #ff5c5c;
+  --ring: #22c55e;
+  --accent-rgb: 34, 197, 94;
 
-  /* Accent - Punchy signature red */
-  --accent: #ff5c5c;
-  --accent-hover: #ff7070;
-  --accent-muted: #ff5c5c;
-  --accent-subtle: rgba(255, 92, 92, 0.15);
+  /* Accent - Vibrant signature green */
+  --accent: #22c55e;
+  --accent-hover: #34d399;
+  --accent-muted: #22c55e;
+  --accent-subtle: rgba(34, 197, 94, 0.16);
   --accent-foreground: #fafafa;
-  --accent-glow: rgba(255, 92, 92, 0.25);
-  --primary: #ff5c5c;
+  --accent-glow: rgba(34, 197, 94, 0.28);
+  --primary: #22c55e;
   --primary-foreground: #ffffff;
 
   /* Secondary - Teal accent for variety */
@@ -67,7 +263,7 @@
   --info: #3b82f6;
 
   /* Focus - With glow */
-  --focus: rgba(255, 92, 92, 0.25);
+  --focus: rgba(34, 197, 94, 0.25);
   --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring);
   --focus-glow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring), 0 0 20px var(--accent-glow);
 
@@ -78,11 +274,18 @@
   --theme-switch-x: 50%;
   --theme-switch-y: 50%;
 
-  /* Typography */
-  --mono:
+  /* Typography - Editorial serif + clean sans */
+  --font-sans:
+    "Styrene B", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-serif:
+    "Tiempos Headline", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+    "Times New Roman", serif;
+  --font-mono:
     "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-body);
+  --mono: var(--font-mono);
+  --font-body: var(--font-sans);
+  --font-display: var(--font-serif);
 
   /* Shadows - Richer with subtle color */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -143,13 +346,15 @@
   --border-hover: #a1a1aa;
   --input: #e4e4e7;
 
-  --accent: #dc2626;
-  --accent-hover: #ef4444;
-  --accent-muted: #dc2626;
-  --accent-subtle: rgba(220, 38, 38, 0.12);
+  --ring: #16a34a;
+  --accent-rgb: 22, 163, 74;
+  --accent: #16a34a;
+  --accent-hover: #15803d;
+  --accent-muted: #16a34a;
+  --accent-subtle: rgba(22, 163, 74, 0.12);
   --accent-foreground: #ffffff;
-  --accent-glow: rgba(220, 38, 38, 0.15);
-  --primary: #dc2626;
+  --accent-glow: rgba(22, 163, 74, 0.18);
+  --primary: #16a34a;
   --primary-foreground: #ffffff;
 
   --secondary: #f4f4f5;
@@ -171,7 +376,7 @@
   --danger-subtle: rgba(220, 38, 38, 0.1);
   --info: #2563eb;
 
-  --focus: rgba(220, 38, 38, 0.2);
+  --focus: rgba(22, 163, 74, 0.2);
   --focus-glow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring), 0 0 16px var(--accent-glow);
 
   --grid-line: rgba(0, 0, 0, 0.05);
@@ -198,11 +403,22 @@ body {
 body {
   margin: 0;
   font: 400 14px/1.55 var(--font-body);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+.page-title,
+.config-section-hero__title,
+.config-section-card__title,
+.card-title {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
 }
 
 /* Theme transition */
@@ -351,7 +567,7 @@ select {
 @keyframes glow-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 rgba(255, 92, 92, 0);
+    box-shadow: 0 0 0 rgba(var(--accent-rgb), 0);
   }
   50% {
     box-shadow: 0 0 20px var(--accent-glow);

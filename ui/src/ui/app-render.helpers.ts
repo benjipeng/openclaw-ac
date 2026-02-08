@@ -2,8 +2,8 @@ import { html } from "lit";
 import { repeat } from "lit/directives/repeat.js";
 import { t } from "../i18n/index.ts";
 import { refreshChat } from "./app-chat.ts";
-import { syncUrlWithSessionKey } from "./app-settings.ts";
 import type { AppViewState } from "./app-view-state.ts";
+import { NAV_COLLAPSE_BREAKPOINT_PX, syncUrlWithSessionKey } from "./app-settings.ts";
 import { OpenClawApp } from "./app.ts";
 import { ChatState, loadChatHistory } from "./controllers/chat.ts";
 import { icons } from "./icons.ts";
@@ -73,6 +73,17 @@ export function renderTab(state: AppViewState, tab: Tab) {
           }
         }
         state.setTab(tab);
+        if (
+          typeof window !== "undefined" &&
+          typeof window.matchMedia === "function" &&
+          window.matchMedia(`(max-width: ${NAV_COLLAPSE_BREAKPOINT_PX}px)`).matches &&
+          !state.settings.navCollapsed
+        ) {
+          state.applySettings({
+            ...state.settings,
+            navCollapsed: true,
+          });
+        }
       }}
       title=${titleForTab(tab)}
     >

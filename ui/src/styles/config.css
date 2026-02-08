@@ -9,6 +9,7 @@
   gap: 0;
   height: calc(100vh - 160px);
   margin: 0 -16px -32px; /* preserve margin-top: 0 for onboarding mode */
+  width: 100%;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--panel);
@@ -425,7 +426,7 @@
   padding: 6px 14px;
   border-radius: var(--radius-full);
   background: var(--accent-subtle);
-  border: 1px solid rgba(255, 77, 77, 0.3);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
   color: var(--accent);
   font-size: 12px;
   font-weight: 600;
@@ -439,7 +440,7 @@
 /* Diff Panel */
 .config-diff {
   margin: 18px 22px 0;
-  border: 1px solid rgba(255, 77, 77, 0.25);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
   border-radius: var(--radius-lg);
   background: var(--accent-subtle);
   overflow: hidden;
@@ -615,7 +616,7 @@
 
 .config-subnav__item.active {
   color: var(--accent);
-  border-color: rgba(255, 77, 77, 0.4);
+  border-color: rgba(var(--accent-rgb), 0.4);
   background: var(--accent-subtle);
 }
 

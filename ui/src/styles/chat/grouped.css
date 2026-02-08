@@ -260,12 +260,12 @@ img.chat-avatar {
 }
 
 :root[data-theme="light"] .chat-group.user .chat-bubble {
-  border-color: rgba(234, 88, 12, 0.2);
-  background: rgba(251, 146, 60, 0.12);
+  border-color: rgba(var(--accent-rgb), 0.28);
+  background: rgba(var(--accent-rgb), 0.12);
 }
 
 .chat-group.user .chat-bubble:hover {
-  background: rgba(255, 77, 77, 0.15);
+  background: rgba(var(--accent-rgb), 0.2);
 }
 
 /* Streaming animation */
@@ -296,5 +296,23 @@ img.chat-avatar {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .chat-group {
+    gap: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Hide side avatars on phones to preserve bubble width. */
+  .chat-avatar {
+    display: none;
+  }
+
+  .chat-group-messages {
+    width: 100%;
+    max-width: 100%;
   }
 }

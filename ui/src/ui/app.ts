@@ -111,7 +111,6 @@ function resolveOnboardingMode(): boolean {
 export class OpenClawApp extends LitElement {
   private i18nController = new I18nController(this);
   clientInstanceId = generateUUID();
-  connectGeneration = 0;
   @state() settings: UiSettings = loadSettings();
   constructor() {
     super();
@@ -136,7 +135,6 @@ export class OpenClawApp extends LitElement {
   @state() assistantName = bootAssistantIdentity.name;
   @state() assistantAvatar = bootAssistantIdentity.avatar;
   @state() assistantAgentId = bootAssistantIdentity.agentId ?? null;
-  @state() serverVersion: string | null = null;
 
   @state() sessionKey = this.settings.sessionKey;
   @state() chatLoading = false;
@@ -395,6 +393,8 @@ export class OpenClawApp extends LitElement {
     onPopStateInternal(this as unknown as Parameters<typeof onPopStateInternal>[0]);
   private themeMedia: MediaQueryList | null = null;
   private themeMediaHandler: ((event: MediaQueryListEvent) => void) | null = null;
+  private navViewportMedia: MediaQueryList | null = null;
+  private navViewportHandler: ((event: MediaQueryListEvent) => void) | null = null;
   private topbarObserver: ResizeObserver | null = null;
 
   createRenderRoot() {

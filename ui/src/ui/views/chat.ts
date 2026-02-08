@@ -85,10 +85,21 @@ export type ChatProps = {
 
 const COMPACTION_TOAST_DURATION_MS = 5000;
 const FALLBACK_TOAST_DURATION_MS = 8000;
+const COMPOSE_MIN_HEIGHT_PX = 76;
+const COMPOSE_MAX_HEIGHT_PX = 150;
 
 function adjustTextareaHeight(el: HTMLTextAreaElement) {
+  // Keep the idle composer aligned with the stacked action buttons across browsers.
+  if (el.value.length === 0) {
+    el.style.height = `${COMPOSE_MIN_HEIGHT_PX}px`;
+    return;
+  }
   el.style.height = "auto";
-  el.style.height = `${el.scrollHeight}px`;
+  const nextHeight = Math.min(
+    Math.max(el.scrollHeight, COMPOSE_MIN_HEIGHT_PX),
+    COMPOSE_MAX_HEIGHT_PX,
+  );
+  el.style.height = `${nextHeight}px`;
 }
 
 function renderCompactionIndicator(status: CompactionIndicatorStatus | null | undefined) {
@@ -427,6 +438,7 @@ export function renderChat(props: ChatProps) {
           <label class="field chat-compose__field">
             <span>Message</span>
             <textarea
+              rows="1"
               ${ref((el) => el && adjustTextareaHeight(el as HTMLTextAreaElement))}
               .value=${props.draft}
               dir=${detectTextDirection(props.draft)}
@@ -464,7 +476,7 @@ export function renderChat(props: ChatProps) {
               ?disabled=${!props.connected || (!canAbort && props.sending)}
               @click=${canAbort ? props.onAbort : props.onNewSession}
             >
-              ${canAbort ? "Stop" : "New session"}
+              ${canAbort ? "Stop" : "New"}
             </button>
             <button
               class="btn primary"

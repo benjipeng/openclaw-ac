@@ -20,6 +20,13 @@ export type UiSettings = {
   locale?: string;
 };
 
+function shouldDefaultNavCollapsed() {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return false;
+  }
+  return window.matchMedia("(max-width: 1100px)").matches;
+}
+
 export function loadSettings(): UiSettings {
   const defaultUrl = (() => {
     const proto = location.protocol === "https:" ? "wss" : "ws";
@@ -42,7 +49,7 @@ export function loadSettings(): UiSettings {
     chatFocusMode: false,
     chatShowThinking: true,
     splitRatio: 0.6,
-    navCollapsed: false,
+    navCollapsed: shouldDefaultNavCollapsed(),
     navGroupsCollapsed: {},
   };
 
