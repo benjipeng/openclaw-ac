@@ -16,6 +16,9 @@ import {
 } from "./app-scroll.ts";
 import {
   applySettingsFromUrl,
+  attachNavViewportListener,
+  attachThemeListener,
+  detachNavViewportListener,
   detachThemeListener,
   inferBasePath,
   syncTabWithLocation,
@@ -91,6 +94,8 @@ type LifecycleHost = {
   controlUiTabPaintSeq?: number;
   controlUiResponsivenessObserver?: { disconnect: () => void } | null;
   controlUiBootstrapReady?: Promise<void> | null;
+  navViewportMedia: MediaQueryList | null;
+  navViewportHandler: ((event: MediaQueryListEvent) => void) | null;
   popStateHandler: () => void;
   topbarObserver: ResizeObserver | null;
 };
@@ -116,6 +121,8 @@ export function handleConnected(host: LifecycleHost) {
     host.chatComposerProvisionalRestore = null;
   }
   syncThemeWithSettings(host as unknown as Parameters<typeof syncThemeWithSettings>[0]);
+  attachThemeListener(host as unknown as Parameters<typeof attachThemeListener>[0]);
+  attachNavViewportListener(host as unknown as Parameters<typeof attachNavViewportListener>[0]);
   window.addEventListener("popstate", host.popStateHandler);
   if (host.connectGeneration === connectGeneration) {
     connectGateway(host as unknown as Parameters<typeof connectGateway>[0]);
@@ -224,6 +231,7 @@ export function handleDisconnected(host: LifecycleHost) {
   host.client?.stop();
   host.client = null;
   host.connected = false;
+  detachNavViewportListener(host as unknown as Parameters<typeof detachNavViewportListener>[0]);
   detachThemeListener(host as unknown as Parameters<typeof detachThemeListener>[0]);
   host.topbarObserver?.disconnect();
   host.topbarObserver = null;

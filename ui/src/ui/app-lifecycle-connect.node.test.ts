@@ -25,7 +25,9 @@ vi.mock("./chat/composer-persistence.ts", () => ({
 
 vi.mock("./app-settings.ts", () => ({
   applySettingsFromUrl: applySettingsFromUrlMock,
+  attachNavViewportListener: vi.fn(),
   attachThemeListener: vi.fn(),
+  detachNavViewportListener: vi.fn(),
   detachThemeListener: vi.fn(),
   inferBasePath: vi.fn(() => "/"),
   syncTabWithLocation: vi.fn(),
@@ -94,6 +96,8 @@ function createHost() {
     logsAutoFollow: false,
     logsAtBottom: true,
     logsEntries: [],
+    navViewportMedia: null,
+    navViewportHandler: null,
     popStateHandler: vi.fn(),
     topbarObserver: null,
   };

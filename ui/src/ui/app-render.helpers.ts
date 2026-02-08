@@ -9,7 +9,7 @@ import {
   scopedAgentParamsForSession,
   scopedAgentListParamsForSession,
 } from "./app-chat.ts";
-import { syncUrlWithSessionKey } from "./app-settings.ts";
+import { NAV_COLLAPSE_BREAKPOINT_PX, syncUrlWithSessionKey } from "./app-settings.ts";
 import type { AppViewState } from "./app-view-state.ts";
 import { persistChatComposerState, restoreChatComposerState } from "./chat/composer-persistence.ts";
 import { reconcileChatRunLifecycle } from "./chat/run-lifecycle.ts";
@@ -254,6 +254,17 @@ export function renderTab(state: AppViewState, tab: Tab, opts?: { collapsed?: bo
           }
         }
         state.setTab(tab);
+        if (
+          typeof window !== "undefined" &&
+          typeof window.matchMedia === "function" &&
+          window.matchMedia(`(max-width: ${NAV_COLLAPSE_BREAKPOINT_PX}px)`).matches &&
+          !state.settings.navCollapsed
+        ) {
+          state.applySettings({
+            ...state.settings,
+            navCollapsed: true,
+          });
+        }
       }}
       title=${titleForTab(tab)}
     >
