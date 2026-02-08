@@ -1426,6 +1426,7 @@
 .table {
   display: grid;
   gap: 6px;
+  container-type: inline-size;
 }
 
 .table-head,
@@ -1453,6 +1454,20 @@
 
 .table-row:hover {
   border-color: var(--border-strong);
+}
+
+@media (max-width: 1100px) {
+  .table-head,
+  .table-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@container (max-width: 1100px) {
+  .table-head,
+  .table-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .session-link {
