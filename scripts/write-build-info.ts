@@ -45,3 +45,6 @@ const buildInfo = {
 
 fs.mkdirSync(distDir, { recursive: true });
 fs.writeFileSync(path.join(distDir, "build-info.json"), `${JSON.stringify(buildInfo, null, 2)}\n`);
+
+// Keep `scripts/run-node.mjs` fast when `dist/` is already built via `pnpm build`.
+fs.writeFileSync(path.join(distDir, ".buildstamp"), `${Date.now()}\n`);
