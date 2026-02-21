@@ -316,6 +316,13 @@ describe("pickPrimaryLanIPv4", () => {
       vi.restoreAllMocks();
     }
   });
+
+  it("returns undefined when networkInterfaces throws", () => {
+    vi.spyOn(os, "networkInterfaces").mockImplementation(() => {
+      throw new Error("permission denied");
+    });
+    expect(pickPrimaryLanIPv4()).toBeUndefined();
+  });
 });
 
 describe("isPrivateOrLoopbackAddress", () => {
