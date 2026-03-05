@@ -5,6 +5,7 @@ packages:
   - extensions/*
 
 onlyBuiltDependencies:
+  - "@tloncorp/api"
   - "@lydell/node-pty"
   - "@matrix-org/matrix-sdk-crypto-nodejs"
   - "@napi-rs/canvas"

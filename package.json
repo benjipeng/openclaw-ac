@@ -433,6 +433,7 @@
       "tough-cookie": "4.1.3"
     },
     "onlyBuiltDependencies": [
+      "@tloncorp/api",
       "@lydell/node-pty",
       "@matrix-org/matrix-sdk-crypto-nodejs",
       "@napi-rs/canvas",
