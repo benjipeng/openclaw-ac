@@ -162,8 +162,6 @@ const createHost = (tab: Tab): SettingsHost => ({
   basePath: "",
   themeMedia: null,
   themeMediaHandler: null,
-  navViewportMedia: null,
-  navViewportHandler: null,
   logsPollInterval: null,
   debugPollInterval: null,
   pendingGatewayUrl: null,
