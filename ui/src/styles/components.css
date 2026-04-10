@@ -2663,7 +2663,6 @@
   display: grid;
   container-type: inline-size;
   gap: 6px;
-  container-type: inline-size;
 }
 
 .table-head,
