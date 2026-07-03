@@ -71,7 +71,7 @@ describe("prepareCliBundleMcpConfig user mcp.servers", () => {
             context7: {
               transport: "streamable-http",
               url: "https://mcp.context7.com/mcp",
-              headers: { CONTEXT7_API_KEY: "ctx7sk-test" },
+              headers: { CONTEXT7_API_KEY: "context7-test-token" },
             },
             "omi-sse": {
               transport: "sse",
